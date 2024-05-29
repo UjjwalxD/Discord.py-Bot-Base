@@ -35,6 +35,7 @@ class Client(commands.AutoShardedBot):
         database()
         self.statuses.start()
         await self.load_extension('jishaku')
+        await self.tree.sync()
         for filename in os.listdir('./cogs'):
             try:
                 if filename.endswith('.py'):
