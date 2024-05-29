@@ -12,7 +12,7 @@
 
 __Note:__ **This source is on its** `Version: 1` **So its not that much good rightnow.**
 
-Must Read the [the license file](https://github.com/UjjwalxD/Discord.py-Bot-Base/blob/master/LICENSE.md) for more
+Must Read the [the license file](https://github.com/UjjwalxD/Discord.py-Bot-Base//LICENSE.md) for more
 
 ## Support Server
 
