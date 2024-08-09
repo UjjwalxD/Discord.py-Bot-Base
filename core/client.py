@@ -1,4 +1,6 @@
 import discord , os , random , jishaku , requests
+import wavelink
+from wavelink import NodeReadyEventPayload
 from utility.logger import logger
 from discord.ext import commands , tasks 
 from dotenv import load_dotenv 
@@ -26,12 +28,20 @@ class Client(commands.AutoShardedBot):
         xd = ["Made By Ujjwal", "github/UjjwalxD", "discord.gg/winklemusic"]
         await self.change_presence(activity=discord.Game(random.choice(xd)))   
         
+        
+        
+    
+    async def on_wavelink_node_ready(self, payload: NodeReadyEventPayload) -> None:
+        print("Wavelink Node connected: %r | Resumed: %s", payload.node, payload.resumed)
+
     
     @statuses.before_loop
     async def before_statuses_task(self) -> None:
         await self.wait_until_ready()
     
     async def setup_hook(self)->None:
+        nodes = [wavelink.Node(uri="http://lavalink01.techbyte.host:2005/", password="NAIGLAVA-dash.techbyte.host")]
+        await wavelink.Pool.connect(nodes=nodes, client=self, cache_capacity=100)
         database()
         self.statuses.start()
         await self.load_extension('jishaku')
@@ -42,7 +52,7 @@ class Client(commands.AutoShardedBot):
                     await self.load_extension(f'cogs.{filename[:-3]}')
                     logger(f'[Loaded] `{filename}`', "blue")
             except Exception as e:
-                logging.info(e)
+                logger(e, "blue")
     
     async def on_message(self, message: discord.Message) -> None:
         if message.author == self.user or message.author.bot:
