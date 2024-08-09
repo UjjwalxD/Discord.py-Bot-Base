@@ -3,6 +3,11 @@ from discord.ext import commands
 import wavelink 
 
 
+
+#
+#  Fill lavalink node at client.py and use version 4 lavalink. (wavelink 3.4)
+#
+
 class LavaMusic(wavelink.Player):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
