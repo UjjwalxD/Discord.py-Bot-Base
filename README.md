@@ -1,4 +1,4 @@
-# Simple Discord.py Bot Base Template
+# Simple Discord.py Bot Base Template (With Music - wavelink 3.4)
 
 <p align="center">
   <a href="https://discord.gg/winklemusic"><img src="https://img.shields.io/discord/1136940882420056094?logo=discord"></a>
