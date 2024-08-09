@@ -6,7 +6,7 @@ import wavelink
 
 #
 #  Fill lavalink node at client.py and use version 4 lavalink. (wavelink 3.4)
-#
+# basic lavamusic bot in python
 
 class LavaMusic(wavelink.Player):
     def __init__(self, *args, **kwargs):
