@@ -71,7 +71,7 @@ class Music(commands.Cog):
         if not ctx.guild:return
         player: LavaMusic = ctx.voice_client
         if player and ctx.author.voice.channel:
-            if player.channel.id != ctx.author.voice.channel.id:
+            if ctx.author.voice.channel.id != player.channel.id:
                 return await ctx.send(f'You`re not connected same voice channel as me.')
         if not player:
             try:
